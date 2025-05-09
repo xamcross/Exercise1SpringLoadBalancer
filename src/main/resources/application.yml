@@ -1,1 +1,12 @@
-spring.application.name=SpringLoadBalancer
+spring:
+  application:
+    name: SpringLoadBalancer
+  cloud:
+    gateway:
+      routes:
+        - id: product-service
+          uri: lb://Product
+          predicates:
+            - Path=/**
+server:
+  port: 8000
